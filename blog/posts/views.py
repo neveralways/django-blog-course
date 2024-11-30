@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 
 posts = [
     {
@@ -40,4 +40,7 @@ def post(request, id):
                 </div>
             """)
 
-    return HttpResponse("<h1>Post not found</h1>")
+    return HttpResponseNotFound("<h1>Post not found :(</h1>")
+
+def google(request, id):
+    return HttpResponseRedirect(f'/post/{id}/')
