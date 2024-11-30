@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.urls import reverse
 
 posts = [
     {
@@ -43,4 +44,5 @@ def post(request, id):
     return HttpResponseNotFound("<h1>Post not found :(</h1>")
 
 def google(request, id):
-    return HttpResponseRedirect(f'/post/{id}/')
+    url = reverse("post", args=[id])
+    return HttpResponseRedirect(url)
