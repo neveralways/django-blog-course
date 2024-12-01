@@ -8,7 +8,12 @@
 </head>
 
 <body>
-    <h1>Welcome {{name}}</h1>
+    {% for post in posts %}
+    <a href="{% url 'post' post.id %}">
+        <h1>{{post.id}} - {{post.title}}</h1>
+    </a>
+    <p>{{post.content}}</p>
+    {% endfor %}
 </body>
 
 </html>

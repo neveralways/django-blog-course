@@ -20,17 +20,7 @@ posts = [
     },
 ]
 def home(request):
-    html = ""
-    for post in posts:
-        html += f"""
-            <div>
-            <a href="/post/{post["id"]}">
-                <h1>{post["id"]} - {post["title"]}</h1></a>
-                <p>{post["content"]}</p>
-            </div>
-        """
-    name = "Never"
-    return render(request, 'posts/home.html', {"name": name})
+    return render(request, 'posts/home.html', {'posts': posts})
 
 def post(request, id):
     for post in posts:
