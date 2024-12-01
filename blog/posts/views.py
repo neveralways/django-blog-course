@@ -29,7 +29,8 @@ def home(request):
                 <p>{post["content"]}</p>
             </div>
         """
-    return render(request, 'posts/home.html')
+    name = "Never"
+    return render(request, 'posts/home.html', {"name": name})
 
 def post(request, id):
     for post in posts:
