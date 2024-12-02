@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{post.title}}</title>
-</head>
+{% block title %}{{post.title}}{% endblock title %}
 
-<body>
-    <a href="{% url 'home' %}">Home</a>
-    <h1>{{post.title}}</h1>
-    <p>{{post.content}}</p>
-</body>
+{% block body %}
 
-</html>
+<h1>{{post.title}}</h1>
+<p>{{post.content}}</p>
+
+{% endblock body %}
