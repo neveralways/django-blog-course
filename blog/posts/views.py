@@ -25,12 +25,7 @@ def home(request):
 def post(request, id):
     for post in posts:
         if post["id"] == id:
-            return HttpResponse(f"""
-                <div>
-                    <h1>{post["id"]} - {post["title"]}</h1>
-                    <p>{post["content"]}</p>
-                </div>
-            """)
+            return render(request, 'posts/post.html', {'post': post})
 
     return HttpResponseNotFound("<h1>Post not found :(</h1>")
 
