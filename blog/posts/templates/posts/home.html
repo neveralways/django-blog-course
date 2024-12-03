@@ -2,11 +2,6 @@
 
 {% block title %}Blog Homepage{% endblock title %}
 
-{% load static %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'posts/home.css' %}">
-{% endblock css %}
-
 {% block body %}
 {% for post in posts %}
 <a href="{% url 'post' post.id %}">
