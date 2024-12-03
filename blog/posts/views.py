@@ -20,7 +20,7 @@ posts = [
     },
 ]
 def home(request):
-    return render(request, 'posts/home.html', {'posts': posts})
+    return render(request, 'posts/index.html', {'posts': posts})
 
 def post(request, id):
     for post in posts:
@@ -28,7 +28,3 @@ def post(request, id):
             return render(request, 'posts/post.html', {'post': post})
 
     return HttpResponseNotFound("<h1>Post not found :(</h1>")
-
-def google(request, id):
-    url = reverse("post", args=[id])
-    return HttpResponseRedirect(url)
