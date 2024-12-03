@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
-from django.urls import reverse
+from django.http import Http404
 
 posts = [
     {
@@ -27,4 +26,4 @@ def post(request, id):
         if post["id"] == id:
             return render(request, 'posts/post.html', {'post': post})
 
-    return HttpResponseNotFound("<h1>Post not found :(</h1>")
+    raise Http404()
