@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
-from django.urls import reverse
+from django.http import Http404
 
 posts = [
     {
@@ -20,15 +19,11 @@ posts = [
     },
 ]
 def home(request):
-    return render(request, 'posts/home.html', {'posts': posts})
+    return render(request, 'posts/index.html', {'posts': posts})
 
 def post(request, id):
     for post in posts:
         if post["id"] == id:
             return render(request, 'posts/post.html', {'post': post})
 
-    return HttpResponseNotFound("<h1>Post not found :(</h1>")
-
-def google(request, id):
-    url = reverse("post", args=[id])
-    return HttpResponseRedirect(url)
+    raise Http404()
